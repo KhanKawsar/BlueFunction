@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523663252249.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "401BBD5C",
+    "lastKnownWriteTime" : 1523924333,
+    "last_content_update" : 1523924333404,
+    "path" : "F:/Blue function/R/BlueFunctionStats.R",
+    "project_path" : "R/BlueFunctionStats.R",
+    "properties" : {
+        "cursorPosition" : "168,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

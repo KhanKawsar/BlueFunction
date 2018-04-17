@@ -1,0 +1,208 @@
+
+
+
+#############Discriminability stats #########
+
+> shapiro.test(blueFunctionData$chromaticMale)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$chromaticMale
+W = 0.90727, p-value = 0.05655
+
+
+> shapiro.test(blueFunctionData$achromaticMale)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$achromaticMale
+W = 0.94938, p-value = 0.3578
+
+
+
+> shapiro.test(blueFunctionData$chromaticFemale)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$chromaticFemale
+W = 0.95188, p-value = 0.5903
+
+
+
+> shapiro.test(blueFunctionData$achromaticFemale)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$achromaticFemale
+W = 0.96784, p-value = 0.8466
+
+
+> chromatic_ftest
+
+	F test to compare two variances
+
+data:  blueFunctionData$chromaticMale and blueFunctionData$chromaticFemale
+F = 0.28778, num df = 19, denom df = 13, p-value = 0.01395
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.09707248 0.77147487
+sample estimates:
+ratio of variances 
+         0.2877802 
+         
+
+
+> achromatic_ftest
+
+	F test to compare two variances
+
+data:  blueFunctionData$achromaticMale and blueFunctionData$achromaticFemale
+F = 0.41638, num df = 19, denom df = 13, p-value = 0.08077
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.1404527 1.1162352
+sample estimates:
+ratio of variances 
+         0.4163848 
+
+
+
+
+> chromatic_wlch_t_ests
+
+	Welch Two Sample t-test
+
+data:  blueFunctionData$chromaticMale and blueFunctionData$chromaticFemale
+t = 7.4317, df = 18.258, p-value = 6.302e-07
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.1403569 0.2508324
+sample estimates:
+mean of x mean of y 
+0.4382379 0.2426433 
+
+
+> achromatic_wlch_t_ests: 
+
+
+Welch Two Sample t-test
+
+data:  blueFunctionData$achromaticMale and blueFunctionData$achromaticFemale
+t = -0.95582, df = 20.492, p-value = 0.3503
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.17901509  0.06639223
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ####################Female preferences data################
+ 
+ 
+ ## #qqnorm and qqline suggest tandem and tandem to wheel data are not normally distributed however wheel data are normally distributed
+ 
+ 
+ > shapiro.test(blueFunctionData$controlTandem)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$controlTandem
+W = 0.85883, p-value = 0.02934
+
+> shapiro.test(blueFunctionData$manipulatedTandem)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$manipulatedTandem
+W = 0.72269, p-value = 0.0001484
+
+> shapiro.test(blueFunctionData$controlTandem2wheel)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$controlTandem2wheel
+W = 0.85441, p-value = 0.01253
+
+> shapiro.test(blueFunctionData$manipulatedTandem2wheel)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$manipulatedTandem2wheel
+W = 0.82893, p-value = 0.01164
+
+> shapiro.test(blueFunctionData$controlWheel)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$controlWheel
+W = 0.92822, p-value = 0.2032
+
+> shapiro.test(blueFunctionData$manipulatedWheel)
+
+	Shapiro-Wilk normality test
+
+data:  blueFunctionData$manipulatedWheel
+W = 0.96273, p-value = 0.7676
+
+##shapiro.test confirm tandem and tandem to wheel data are not normally distributed however wheel data are normally distributed
+
+
+
+## As the tandem duration and tandem to wheel duration do not follow normal distribution we need to follow Mann whitney test for that. 
+
+
+##F test to calculate varince between wheel duraion of control and manipulated#
+
+> var.test(blueFunctionData$controlWheel,blueFunctionData$manipulatedWheel)
+
+	F test to compare two variances
+
+data:  blueFunctionData$controlWheel and blueFunctionData$manipulatedWheel
+F = 1.2116, num df = 16, denom df = 13, p-value = 0.7358
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.4002733 3.4537101
+sample estimates:
+ratio of variances 
+          1.211591 
+          
+## As data of wheel formation is normally distributed and variances are equal we should do a two sample t-test for that
+
+> wilcox.test(blueFunctionData$controlTandem, blueFunctionData$manipulatedTandem)
+
+	Wilcoxon rank sum test with continuity  (Mann-Whitney U test)
+
+data:  blueFunctionData$controlTandem and blueFunctionData$manipulatedTandem
+W = 177.5, p-value = 0.05266
+alternative hypothesis: true location shift is not equal to 0
+
+
+
+> wilcox.test(blueFunctionData$controlTandem2wheel, blueFunctionData$manipulatedTandem2wheel)
+
+	Wilcoxon rank sum test (Mann-Whitney U test)
+
+data:  blueFunctionData$controlTandem2wheel and blueFunctionData$manipulatedTandem2wheel
+W = 127, p-value = 0.7692
+alternative hypothesis: true location shift is not equal to 0
+
+
+> t.test(blueFunctionData$controlWheel, blueFunctionData$manipulatedWheel)
+
+	Welch Two Sample t-test
+
+data:  blueFunctionData$controlWheel and blueFunctionData$manipulatedWheel
+t = 0.082915, df = 28.683, p-value = 0.9345
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1.751995  1.899978
+sample estimates:
+mean of x mean of y 
+ 6.674706  6.600714 
+ 
+
+
+
